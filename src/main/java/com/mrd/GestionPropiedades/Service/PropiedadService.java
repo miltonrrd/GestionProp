@@ -2,7 +2,7 @@ package com.mrd.GestionPropiedades.Service;
 
 import com.mrd.GestionPropiedades.Models.IPropiedades;
 import com.mrd.GestionPropiedades.Models.Propiedad;
-import com.mrd.GestionPropiedades.Repository.PropiedadRepository;
+import com.mrd.GestionPropiedades.Repository.IPropiedadRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,30 +10,30 @@ import java.util.List;
 @Service
 public class PropiedadService implements IPropiedades {
     @Autowired
-    PropiedadRepository propiedadRepository;
+    IPropiedadRepository propiedadRepository;
     @Override
     public List<Propiedad> getPropiedades() {
-        return propiedadRepository.getPropiedades();
+        return (List) propiedadRepository.findAll();
     }
 
     @Override
-    public Propiedad getPropiedad(long id) {
-        return propiedadRepository.getPropiedad(id);
+    public Propiedad getPropiedad(Long id) {
+
+        return propiedadRepository.findById(id).get();
     }
 
     @Override
-    public void deletePropiedad(long id) {
-        propiedadRepository.deletePropiedad(id);
+    public void deletePropiedad(Long id) {
+        propiedadRepository.deleteById(id);
     }
 
     @Override
-    public void putPropiedad(Propiedad propiedad, long id) {
-        propiedadRepository.putPropiedad(propiedad, id);
+    public void putPropiedad(Propiedad propiedad, Long id){
+        propiedadRepository.save(propiedad);
     }
 
     @Override
     public void postPropiedad(Propiedad propiedad) {
-
-        propiedadRepository.postPropiedad(propiedad);
+        propiedadRepository.save(propiedad);
     }
 }

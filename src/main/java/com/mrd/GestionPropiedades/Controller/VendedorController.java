@@ -24,20 +24,20 @@ public class VendedorController implements IVendedor {
 
     @Override
     @GetMapping("/api/vendedor/{id}")
-    public Vendedor getVendedor(@PathVariable long id) {
+    public Vendedor getVendedor(@PathVariable Long id) {
 
        return vendedorService.getVendedor(id);
     }
 
     @Override
     @DeleteMapping("/api/vendedor/{id}")
-    public void deleteVendedor(@PathVariable long id) {
+    public void deleteVendedor(@PathVariable Long id) {
         vendedorService.deleteVendedor(id);
     }
 
     @Override
     @PutMapping("/api/vendedor/{id}")
-    public void putVendedor(@RequestBody Vendedor vendedor,@PathVariable long id) {
+    public void putVendedor(@RequestBody Vendedor vendedor,@PathVariable Long id) {
         vendedorService.putVendedor(vendedor,id);
     }
 

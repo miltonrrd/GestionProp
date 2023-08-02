@@ -4,8 +4,8 @@ import java.util.List;
 
 public interface IVendedor {
     List<Vendedor> getVendedores();
-    Vendedor getVendedor(long id);
-    void deleteVendedor(long id);
-    void putVendedor(Vendedor vendedor, long id);
+    Vendedor getVendedor(Long id);
+    void deleteVendedor(Long id);
+    void putVendedor(Vendedor vendedor, Long id);
     void postVendedor(Vendedor vendedor);
 }

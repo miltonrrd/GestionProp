@@ -20,19 +20,19 @@ public class PropiedadController implements IPropiedades {
 
     @Override
     @GetMapping("/api/propiedad/{id}")
-    public Propiedad getPropiedad(@PathVariable long id) {
+    public Propiedad getPropiedad(@PathVariable Long id) {
         return propiedadService.getPropiedad(id);
     }
 
     @Override
     @DeleteMapping("api/propiedad/{id}")
-    public void deletePropiedad(@PathVariable long id) {
+    public void deletePropiedad(@PathVariable Long id) {
         propiedadService.deletePropiedad(id);
     }
 
     @Override
     @PutMapping("api/propiedad/{id}")
-    public void putPropiedad(@RequestBody Propiedad propiedad,@PathVariable long id) {
+    public void putPropiedad(@RequestBody Propiedad propiedad,@PathVariable Long id) {
         propiedadService.putPropiedad(propiedad,id);
     }
 
